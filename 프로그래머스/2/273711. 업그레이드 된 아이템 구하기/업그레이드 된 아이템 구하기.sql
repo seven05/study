@@ -1,0 +1,9 @@
+-- 코드를 작성해주세요
+SELECT II.ITEM_ID, II.ITEM_NAME, II.RARITY
+FROM ITEM_INFO II
+JOIN ITEM_TREE IT ON II.ITEM_ID = IT.ITEM_ID
+WHERE IT.PARENT_ITEM_ID IN ( #어떤 아이템의 부모(PARENT_ITEM_ID)가 ??? 중에 하나라도 해당하니?
+    SELECT ITEM_ID FROM ITEM_INFO WHERE RARITY = 'RARE') #희귀도가 RARE인 아이템의 ID 목록을 가져와
+    # -> 네 부모의 ID가 'RARE' 등급 아이템 리스트에 들어있니?
+ORDER BY II.ITEM_ID DESC
+
